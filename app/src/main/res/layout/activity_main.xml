@@ -1,29 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.chaos.chaoscompass.MainActivity">
-    <TextView
-        android:id="@+id/tv_compass"
-        android:layout_marginTop="20dp"
-        android:background="@color/black"
-        android:text="指南针戳这里"
-        android:gravity="center"
-        android:textSize="18sp"
-        android:textColor="@color/white"
+    android:background="@color/activity_bg"
+    tools:context="com.chaos.chaoscompass.MainActivity2">
+
+    <View
+        android:id="@+id/appBar"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="?actionBarSize"
+        android:background="@drawable/background_compass_app_bar"
+        app:layout_constraintBottom_toTopOf="@+id/tabView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
     <TextView
-        android:id="@+id/tv_oclock"
-        android:background="@color/ocbg"
-        android:gravity="center"
-        android:text="时钟戳这里"
-        android:textSize="18sp"
+        android:id="@+id/textView"
+        style="@style/TextAppearance.Primary.Big.Dialog.SingleLine"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_smaller_size"
+        android:paddingHorizontal="@dimen/dp_1"
+        android:text="@string/text_compass"
         android:textColor="@color/white"
-        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/appBar"
+        app:layout_constraintLeft_toRightOf="@+id/nav_menu"
+        app:layout_constraintRight_toLeftOf="@+id/premium_services"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/nav_menu"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginLeft="@dimen/margin_smaller_size"
+        android:contentDescription="@string/app_name"
+        android:padding="@dimen/dp_5"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:srcCompat="@drawable/menu" />
+
+    <ImageView
+        android:id="@+id/premium_services"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="@dimen/margin_small_size"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:srcCompat="@drawable/group_1" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabView"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
-</LinearLayout>
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/viewPager"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBar"
+        app:tabBackground="@color/colorPrimary"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@color/white"
+        app:tabIndicatorGravity="bottom"
+        app:tabIndicatorHeight="2dp"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="@color/white_tab" />
+
+    <View
+        android:id="@+id/v1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorShadowCustom"
+        app:layout_constraintBottom_toTopOf="@+id/viewPager"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabView" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CompassActivity extends AppCompatActivity {
+public class MainActivity2 extends AppCompatActivity {
 
     private SensorManager mSensorManager;
     private SensorEventListener mSensorEventListener;
@@ -18,10 +18,10 @@ public class CompassActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_compass);
+        setContentView(R.layout.activity_main);
+
         chaosCompassView = (ChaosCompassView) findViewById(R.id.chaosCompassView);
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-
 
         mSensorEventListener = new SensorEventListener() {
             @Override
@@ -45,4 +45,5 @@ public class CompassActivity extends AppCompatActivity {
         super.onDestroy();
         mSensorManager.unregisterListener(mSensorEventListener);
     }
+
 }

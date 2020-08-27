@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ChaosCompass</string>
+    <string name="text_compass">COMPASS</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Level Meter will Appear here</string>
+    <string name="text_level_meter">LEVEL</string>
+    <string name="text_compass_permission">Please provide permissions for better results</string>
+    <string name="text_warning">Warning</string>
+    <string name="text_info">Info</string>
 </resources>
