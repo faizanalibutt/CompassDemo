@@ -1,4 +1,4 @@
-package com.chaos.chaoscompass;
+package com.chaos.chaoscompass.views;
 
 import android.content.Context;
 import android.graphics.Bitmap;

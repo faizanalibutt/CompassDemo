@@ -1,4 +1,4 @@
-package com.chaos.chaoscompass
+package com.chaos.chaoscompass.fragment
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -12,12 +12,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.chaos.chaoscompass.utils.CurrentLocation
+import com.chaos.chaoscompass.R
 import com.nabinbhandari.android.permissions.PermissionHandler
 import com.nabinbhandari.android.permissions.Permissions
 import kotlinx.android.synthetic.main.fragment_compass.*
-import java.util.*
 
 @SuppressLint("SetTextI18n")
 class CompassFragment() : Fragment(), CurrentLocation.LocationResultListener {
@@ -61,7 +61,8 @@ class CompassFragment() : Fragment(), CurrentLocation.LocationResultListener {
             SensorManager.SENSOR_DELAY_GAME
         )
 
-        currentLocation = CurrentLocation(view.context)
+        currentLocation =
+            CurrentLocation(view.context)
 
         val permissions = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CAMERA)
         val rationale = getString(R.string.text_compass_permission)

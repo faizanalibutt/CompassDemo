@@ -1,0 +1,90 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+
+            resValue "string", "splash_native_am", "ca-app-pub-8620219021552434/2581892812"//
+            resValue "string", "mm_native_am", "ca-app-pub-8620219021552434/9801073136"//
+            resValue "string", "mm_native_fb", "302217394302437_302220877635422"//
+            resValue "string", "splash_inter_am", "ca-app-pub-8620219021552434/4477320614"//
+            resValue "string", "mm_inter_am", "ca-app-pub-8620219021552434/4664845267"//
+            resValue "string", "mm_inter_fb", "302217394302437_302220100968833"//
+            resValue "string", "banner_am", "ca-app-pub-8620219021552434/6296942391"
+            resValue "string", "banner_fb", "302217394302437_302221714302005"//
+            resValue "string", "exit_native_am", "ca-app-pub-8620219021552434/7467280187"//
+            resValue "string", "exit_native_fb", "302217394302437_302221340968709"//
+
+            resValue "string", "ad_app_id", "ca-app-pub-8620219021552434~7637658814"
+            // keys like given in remote config.
+            resValue "string", "remove_ads_key", "remove_ads"
+
+        }
+
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            resValue "string", "splash_native_am", "ca-app-pub-3940256099942544/2247696110"
+            resValue "string", "mm_native_am", "ca-app-pub-3940256099942544/2247696110"
+            resValue "string", "mm_native_fb", "IMG_16_9_LINK#302217394302437_302220877635422"
+            resValue "string", "splash_inter_am", "ca-app-pub-3940256099942544/1033173712"
+            resValue "string", "mm_inter_am", "ca-app-pub-3940256099942544/1033173712"
+            resValue "string", "mm_inter_fb", "CAROUSEL_IMG_SQUARE_APP_INSTALL#302217394302437_302220100968833"
+            resValue "string", "banner_am", "ca-app-pub-3940256099942544/6300978111"
+            resValue "string", "banner_fb", "IMG_16_9_APP_INSTALL#302217394302437_302221714302005"
+            resValue "string", "exit_native_am", "ca-app-pub-3940256099942544/2247696110"//
+            resValue "string", "exit_native_fb", "IMG_16_9_LINK#302217394302437_302221340968709"//
+
+            resValue "string", "ad_app_id", "ca-app-pub-1883205376891397~4866875497"
+            resValue "string", "remove_ads_key", "android.test.purchased"
+
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    def anko_version = '0.10.8'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api "org.jetbrains.anko:anko-commons:$anko_version"
+    api "org.jetbrains.anko:anko-design:$anko_version"
+
+    api 'androidx.appcompat:appcompat:1.2.0'
+    api 'androidx.constraintlayout:constraintlayout:2.0.0'
+    api 'com.google.firebase:firebase-config:19.2.0'
+    api 'com.google.firebase:firebase-ads:19.3.0'
+//    api 'com.anjlab.android.iab.v3:library:1.1.0'
+    api "androidx.preference:preference:1.1.1"
+    api 'com.google.code.gson:gson:2.8.6'
+    api 'com.anjlab.android.iab.v3:library:1.1.0'
+    api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    api 'com.jakewharton.timber:timber:4.7.1'
+    api 'com.facebook.shimmer:shimmer:0.5.0'
+    api 'de.hdodenhof:circleimageview:3.1.0'
+
+    // Facebook Audience Network
+    api 'com.facebook.android:audience-network-sdk:5.9.1'
+
+}

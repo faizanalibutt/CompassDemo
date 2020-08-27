@@ -1,4 +1,4 @@
-package com.chaos.chaoscompass;
+package com.chaos.chaoscompass.utils;
 
 import android.annotation.TargetApi;
 import android.app.Activity;

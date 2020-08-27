@@ -1,4 +1,4 @@
-package com.chaos.chaoscompass;
+package com.chaos.chaoscompass.views;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -9,7 +9,8 @@ import android.util.Log;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
+
+import com.chaos.chaoscompass.utils.SensorValue;
 
 
 /**

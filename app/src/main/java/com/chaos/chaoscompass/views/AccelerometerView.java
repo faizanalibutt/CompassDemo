@@ -1,4 +1,4 @@
-package com.chaos.chaoscompass;
+package com.chaos.chaoscompass.views;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -8,6 +8,8 @@ import android.util.DisplayMetrics;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+
+import com.chaos.chaoscompass.utils.SensorValue;
 
 /**
  * Created by Duy on 10/20/2017.

@@ -1,4 +1,4 @@
-package com.chaos.chaoscompass
+package com.chaos.chaoscompass.app
 
 import android.content.Context
 import android.content.res.Configuration

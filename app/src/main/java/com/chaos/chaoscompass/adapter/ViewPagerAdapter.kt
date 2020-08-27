@@ -1,4 +1,4 @@
-package com.chaos.chaoscompass
+package com.chaos.chaoscompass.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

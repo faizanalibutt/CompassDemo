@@ -1,8 +1,11 @@
-package com.chaos.chaoscompass;
+package com.chaos.chaoscompass.activity;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.chaos.chaoscompass.utils.BarUtils;
+import com.chaos.chaoscompass.R;
 
 public class OclockActivity extends AppCompatActivity {
 

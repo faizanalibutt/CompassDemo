@@ -1,6 +1,11 @@
-package com.chaos.chaoscompass
+package com.chaos.chaoscompass.activity
 
 import android.os.Bundle
+import com.chaos.chaoscompass.*
+import com.chaos.chaoscompass.adapter.ViewPagerAdapter
+import com.chaos.chaoscompass.app.Activity
+import com.chaos.chaoscompass.fragment.CompassFragment
+import com.chaos.chaoscompass.fragment.LevelFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : Activity() {

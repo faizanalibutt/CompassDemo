@@ -1,4 +1,4 @@
-package com.chaos.chaoscompass;
+package com.chaos.chaoscompass.activity;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -7,6 +7,9 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.chaos.chaoscompass.views.ChaosCompassView;
+import com.chaos.chaoscompass.R;
 
 public class CompassActivity extends AppCompatActivity {
 

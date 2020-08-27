@@ -1,4 +1,4 @@
-package com.chaos.chaoscompass;
+package com.chaos.chaoscompass.views;
 
 import android.animation.PropertyValuesHolder;
 import android.animation.TimeInterpolator;
@@ -18,6 +18,8 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+
+import com.chaos.chaoscompass.R;
 
 
 /**

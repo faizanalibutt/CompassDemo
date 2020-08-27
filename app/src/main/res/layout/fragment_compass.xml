@@ -8,9 +8,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black"
-        tools:context="com.chaos.chaoscompass.CompassActivity">
+        tools:context="com.chaos.chaoscompass.activity.CompassActivity">
 
-        <com.chaos.chaoscompass.ChaosCompassView
+        <com.chaos.chaoscompass.views.ChaosCompassView
             android:id="@+id/chaosCompassView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

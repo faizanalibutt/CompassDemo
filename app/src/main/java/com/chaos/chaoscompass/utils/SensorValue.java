@@ -1,4 +1,4 @@
-package com.chaos.chaoscompass;
+package com.chaos.chaoscompass.utils;
 
 /**
  * Created by Duy on 10/16/2017.
