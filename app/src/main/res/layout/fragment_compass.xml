@@ -11,10 +11,16 @@
         android:background="@color/black"
         tools:context="com.chaos.chaoscompass.activity.CompassActivity">
 
+        <com.chaos.chaoscompass.utils.CapturePreview
+            android:id="@+id/cameraPreview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
         <com.chaos.chaoscompass.views.ChaosCompassView
             android:id="@+id/chaosCompassView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_centerInParent="true"
             android:background="@color/black" />
 
