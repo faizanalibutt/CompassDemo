@@ -2,7 +2,9 @@ package com.chaos.chaoscompass.fragment
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
@@ -15,6 +17,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.chaos.chaoscompass.utils.CurrentLocation
 import com.chaos.chaoscompass.R
+import com.google.android.material.snackbar.Snackbar
 import com.nabinbhandari.android.permissions.PermissionHandler
 import com.nabinbhandari.android.permissions.Permissions
 import kotlinx.android.synthetic.main.fragment_compass.*
@@ -56,15 +59,46 @@ class CompassFragment() : Fragment(), CurrentLocation.LocationResultListener {
             override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {}
         }
 
+        var sensor = mSensorManager?.getDefaultSensor(Sensor.TYPE_ORIENTATION)
+        if (sensor == null)
+        {
+            sensor = mSensorManager?.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR)
+            if (sensor == null)
+            {
+                sensor = mSensorManager?.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
+                if (sensor == null)
+                    Snackbar.make(compassPane, "Alas! your device HAS_NO_SENSOR.", Snackbar.LENGTH_INDEFINITE)
+                        .show()
+                else
+                    Snackbar.make(compassPane, "Hurrah! your device has magnetic.", Snackbar.LENGTH_INDEFINITE)
+                        .show()
+            }
+            else
+                Snackbar.make(compassPane, "Hurrah! your device has rotation.", Snackbar.LENGTH_INDEFINITE)
+                    .show()
+        }
+        else
+            Snackbar.make(compassPane, "Hurrah! your device has orientation.", Snackbar.LENGTH_INDEFINITE)
+                .show()
+
+        /*AlertDialog.Builder(view.context).setTitle(R.string.no_sensor)
+                .setMessage(R.string.no_sensor_explain)
+                .setOnDismissListener { it.dismiss() }
+                .setPositiveButton(
+                    R.string.okay
+                ) { dialogInterface: DialogInterface, i: Int -> dialogInterface.dismiss() }
+                .create()
+                .show()*/
+
         mSensorManager?.registerListener(
-            mSensorEventListener, mSensorManager?.getDefaultSensor(Sensor.TYPE_ORIENTATION),
+            mSensorEventListener, sensor,
             SensorManager.SENSOR_DELAY_GAME
         )
 
-        currentLocation =
-            CurrentLocation(view.context)
+        currentLocation = CurrentLocation(view.context)
 
-        val permissions = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CAMERA)
+        val permissions = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.CAMERA)
         val rationale = getString(R.string.text_compass_permission)
         val options = Permissions.Options().setRationaleDialogTitle(getString(R.string.text_info))
             .setSettingsDialogTitle(getString(R.string.text_warning))

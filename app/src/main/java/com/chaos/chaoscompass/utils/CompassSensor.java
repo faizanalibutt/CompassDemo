@@ -74,7 +74,7 @@ public class CompassSensor implements SensorEventListener {
     }
 
     public void setCompassAnimation(float azimuth, View view) {
-        // Log.d(TAG, "will set rotation from " + currentAzimuth + " to "                + azimuth);
+        // Log.d(TAG, "will set rotation from " + currentAzimuth + " to " + azimuth);
         Animation an = new RotateAnimation(-currentAzimuth, -azimuth,
                 Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
                 0.5f);
@@ -127,7 +127,7 @@ public class CompassSensor implements SensorEventListener {
             boolean success = SensorManager.getRotationMatrix(R, I, mGravity,
                     mGeomagnetic);
             if (success) {
-                float orientation[] = new float[3];
+                float[] orientation = new float[3];
                 SensorManager.getOrientation(R, orientation);
                 // Log.d(TAG, "azimuth (rad): " + azimuth);
                 azimuth = (float) Math.toDegrees(orientation[0]); // orientation

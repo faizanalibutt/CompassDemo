@@ -398,21 +398,21 @@ public class ChaosCompassView extends View{
 
     private void drawText() {
         if (val<=15||val>=345){
-            text = "北";
+            text = "N";//"北";
         }else if (val>15&&val<=75){
-            text= "东北";
+            text= "NE";//"东北";
         }else if (val>75&&val<=105){
-            text= "东";
+            text= "E";//"东";
         }else if (val>105&&val<=165){
-            text="东南";
+            text= "SE";//"东南";
         }else if (val>165&&val<=195){
-            text = "南";
+            text = "S";//"南";
         }else if (val>195&&val<=255){
-            text = "西南";
+            text = "SW";//"西南";
         }else if (val>255&&val<=285){
-            text = "西";
+            text = "W";//"西";
         }else if (val>285&&val<345){
-            text="西北";
+            text="NW";//"西北";
         }
 
         mTextPaint.getTextBounds(text,0,text.length(),mTextRect);

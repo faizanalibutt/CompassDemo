@@ -7,4 +7,7 @@
     <string name="text_compass_permission">Please provide permissions for better results</string>
     <string name="text_warning">Warning</string>
     <string name="text_info">Info</string>
+    <string name="no_sensor">Sensor not found</string>
+    <string name="no_sensor_explain">This app requires a dedicated hardware orientation sensor - which your device does not have. This App won\'t run on your device.</string>
+    <string name="okay">OK</string>
 </resources>
