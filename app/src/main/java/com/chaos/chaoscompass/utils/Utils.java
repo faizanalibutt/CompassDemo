@@ -17,20 +17,23 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Display;
 
+import com.chaos.chaoscompass.AppDelegate;
 import com.chaos.chaoscompass.R;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Locale;
-import miui.os.SystemProperties;
-import miui.util.AppConstants;
+
+/*import miui.os.SystemProperties;
+import miui.util.AppConstants;*/
 
 public class Utils {
     private static final String CHANNEL_NAME = "mi_stat_channel";
     private static final String DEFAULT_CHANNEL_MIUI = "miui";
     private static final String EMPTY_CHANNEL_VALUE = "${channel_value}";
     private static final String HIDE_GESTURE_LINE = "hide_gesture_line";
-    private static final String[] LANGUAGE_LIST = CompassApplication.getAppContext().getResources().getStringArray(R.array.compass_locale_language);
+    //private static final String[] LANGUAGE_LIST
+    // = CompassApplication.getAppContext().getResources().getStringArray(R.array.compass_locale_language);
     private static final String USE_GESTURE_VERSION_THREE = "use_gesture_version_three";
     private static String sChannelValue;
     private static final HashMap<String, Typeface> sTypefaceMap = new HashMap<>();
@@ -55,7 +58,8 @@ public class Utils {
     }
 
     public static boolean isWifi(Context context) {
-        NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
+        NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getApplicationContext()
+                .getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
         if (activeNetworkInfo == null || activeNetworkInfo.getType() != 1) {
             return false;
         }
@@ -71,16 +75,22 @@ public class Utils {
         int i2 = (int) ((d - ((double) i)) * 3600.0d);
         int i3 = i2 / 60;
         int i4 = i2 % 60;
-        String[] strArr = LANGUAGE_LIST;
+        /*String[] strArr = LANGUAGE_LIST;
         if (strArr != null && strArr.length > 0) {
             String language = Locale.getDefault().getLanguage();
             for (String equals : LANGUAGE_LIST) {
                 if (TextUtils.equals(equals, language)) {
-                    return CompassApplication.getAppContext().getString(R.string.altitude_longitude_Degree_format, new Object[]{Integer.valueOf(i), Integer.valueOf(i3), Integer.valueOf(i4)});
+                    return AppDelegate.getAppContext().getString(R.string.altitude_longitude_Degree_format, new Object[]{Integer.valueOf(i), Integer.valueOf(i3), Integer.valueOf(i4)});
                 }
             }
-        }
-        return String.format(Locale.US, CompassApplication.getAppContext().getString(R.string.altitude_longitude_Degree_format), new Object[]{Integer.valueOf(i), Integer.valueOf(i3), Integer.valueOf(i4)});
+        }*/
+
+        Context context = AppDelegate.getAppContext();
+
+        // TODO: 8/28/2020 make sure it wont get exception
+        return context != null ? String.format(Locale.US, context
+                        .getString(R.string.altitude_longitude_Degree_format),
+                i, i3, i4) : "";
     }
 
     public static void dismissDialog(AlertDialog alertDialog) {
@@ -90,7 +100,7 @@ public class Utils {
     }
 
     public static String formatToArabicNums(Context context, int i, float f) {
-        if (Math.round(f) == 0) {
+        /*if (Math.round(f) == 0) {
             f = 0.0f;
         }
         String[] strArr = LANGUAGE_LIST;
@@ -101,7 +111,7 @@ public class Utils {
                     return context.getString(i, new Object[]{Float.valueOf(f)});
                 }
             }
-        }
+        }*/
         return String.format(Locale.US, context.getString(i), new Object[]{Float.valueOf(f)});
     }
 
@@ -118,9 +128,9 @@ public class Utils {
     }
 
     public static int getNavigationBarHeight(Activity activity) {
-        if (activity.isInMultiWindowMode()) {
+        /*if (activity.isInMultiWindowMode()) {
             return 0;
-        }
+        }*/
         Context context = activity.getWindow().getContext();
         int i = isInFullWindowGestureMode(context) ? (!isMiuiXIISdkSupported() || !isSupportGestureLine(context) || !isEnableGestureLine(context)) ? 0 : getNavigationBarHeightFromProp(context) : getNavigationBarHeightFromProp(context);
         if (i < 0) {
@@ -173,7 +183,7 @@ public class Utils {
     public static boolean hasNotchScreen() {
         int i;
         try {
-            i = SystemProperties.getInt("ro.miui.notch", 0);
+            i = 0;//SystemProperties.getInt("ro.miui.notch", 0);
         } catch (Exception e) {
             e.printStackTrace();
             i = 0;
@@ -185,7 +195,7 @@ public class Utils {
     }
 
     public static boolean hasHideNotchScreen() {
-        return Global.getInt(CompassApplication.getAppContext().getContentResolver(), "force_black", 0) == 1;
+        return false/*Global.getInt(CompassApplication.getAppContext().getContentResolver(), "force_black", 0) == 1*/;
     }
 
     public static boolean isInFullWindowGestureMode(Context context) {
@@ -223,6 +233,6 @@ public class Utils {
     }
 
     public static boolean isMiuiXIISdkSupported() {
-        return AppConstants.getSdkLevel(AppConstants.getCurrentApplication(), "com.miui.core") >= 20;
+        return false/*AppConstants.getSdkLevel(AppConstants.getCurrentApplication(), "com.miui.core") >= 20*/;
     }
 }

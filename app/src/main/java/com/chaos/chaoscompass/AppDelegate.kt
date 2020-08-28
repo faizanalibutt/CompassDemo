@@ -1,6 +1,7 @@
 package com.chaos.chaoscompass
 
 import android.app.Application
+import android.content.Context
 import timber.log.Timber
 
 
@@ -20,6 +21,8 @@ class AppDelegate : Application() {
         if (BuildConfig.DEBUG)
             Timber.plant(Timber.DebugTree())
 
+        appContext = applicationContext
+
         /*RemoteConfigUtils.createConfigSettings().fetchAndActivate()
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)*/
     }
@@ -37,6 +40,9 @@ class AppDelegate : Application() {
     }*/
 
     companion object {
+
+        @JvmStatic
+        var appContext: Context? = null
 
         /*var bp: BillingProcessor? = null
         var localeManager: LocaleManagerX? = null

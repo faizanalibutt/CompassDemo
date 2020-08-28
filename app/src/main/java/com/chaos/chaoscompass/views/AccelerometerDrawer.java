@@ -2,14 +2,18 @@ package com.chaos.chaoscompass.views;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
+
 import android.util.Log;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 
+import com.chaos.chaoscompass.R;
 import com.chaos.chaoscompass.utils.SensorValue;
 
 
@@ -65,20 +69,11 @@ public class AccelerometerDrawer {
         }
 
 
-
-      /*      mForegroundColor = ContextCompat.getColor(mContext, R.color.compass_foreground_color);
-            mBackgroundColor = ContextCompat.getColor(mContext, R.color.compass_background_color);
-            mPrimaryTextColor = ContextCompat.getColor(mContext, R.color.compass_text_primary_color);
-            mSecondaryTextColor = ContextCompat.getColor(mContext, R.color.compass_text_secondary_color);
-            mAccentColor = ContextCompat.getColor(mContext, R.color.compass_accent_color);*/
-
-        // TODO: 8/25/2020 change color view
-        /*mForegroundColor = ContextCompat.getColor(mContext, R.color.compass_foreground_color_light);
-        mBackgroundColor = ContextCompat.getColor(mContext, R.color.color_primary);
+        mForegroundColor = ContextCompat.getColor(mContext, R.color.compass_foreground_color);
+        mBackgroundColor = ContextCompat.getColor(mContext, R.color.compass_background_color);
         mPrimaryTextColor = ContextCompat.getColor(mContext, R.color.compass_text_primary_color);
-        mSecondaryTextColor = ContextCompat.getColor(mContext, R.color.compass_text_primary_color);
-        mAccentColor = ContextCompat.getColor(mContext, R.color.colorRed);*/
-
+        mSecondaryTextColor = ContextCompat.getColor(mContext, R.color.compass_text_secondary_color);
+        mAccentColor = ContextCompat.getColor(mContext, R.color.compass_accent_color);
 
         mPathPaint.setStrokeCap(Paint.Cap.ROUND);
 
@@ -115,9 +110,9 @@ public class AccelerometerDrawer {
         mPath.lineTo(mCenter.x + radius, mCenter.y);
         mPath.moveTo(mCenter.x, mCenter.y - radius);
         mPath.lineTo(mCenter.x, mCenter.y + radius);
-//        mPath.addCircle(mCenter.x, mCenter.y, radius, Path.Direction.CCW);
+        mPath.addCircle(mCenter.x, mCenter.y, radius, Path.Direction.CCW);
 
-//        mPathPaint.setShadowLayer(realPx(3), 0, 0, Color.BLACK);
+        mPathPaint.setShadowLayer(realPx(3), 0, 0, Color.BLACK);
         mPathPaint.setColor(mSecondaryTextColor);
         mPathPaint.setStrokeWidth(realPx(5));
         mPathPaint.setStyle(Paint.Style.STROKE);

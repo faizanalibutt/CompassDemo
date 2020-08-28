@@ -10,4 +10,5 @@
     <string name="no_sensor">Sensor not found</string>
     <string name="no_sensor_explain">This app requires a dedicated hardware orientation sensor - which your device does not have. This App won\'t run on your device.</string>
     <string name="okay">OK</string>
+    <string name="altitude_longitude_Degree_format">%d°%d\'%d\"</string>
 </resources>

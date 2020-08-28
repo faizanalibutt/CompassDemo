@@ -10,7 +10,6 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 import com.chaos.chaoscompass.utils.SensorValue;
-
 /**
  * Created by Duy on 10/20/2017.
  */
